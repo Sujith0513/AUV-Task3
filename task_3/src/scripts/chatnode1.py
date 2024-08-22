@@ -5,19 +5,18 @@ from std_msgs.msg import String
 started=False
 
 def callback(data):
-    global started
-    if (started):
+    if data._connection_header['callerid'] != rospy.get_name():
         rospy.loginfo("Node 1 recieved '%s' from Node 2",data.data)
-        started=False
     
 def listener():
-    rospy.Subscriber("chat2", String, callback)
+    rospy.Subscriber("chatter", String, callback)
 
 def talker():
     global started
-    pub = rospy.Publisher('chat1', String, queue_size=10)
+    pub = rospy.Publisher('chatter', String, queue_size=10)
     rospy.init_node("Node_1", anonymous=True)
     rate = rospy.Rate(10)
+    listener()
     msg=String()
     while not rospy.is_shutdown():
         msg=input("")
@@ -25,7 +24,6 @@ def talker():
         pub.publish(msg)
         rospy.loginfo(msg)
         rate.sleep
-        listener()
 
 if __name__ == '__main__':
     try:

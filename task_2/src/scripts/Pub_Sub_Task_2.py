@@ -13,7 +13,6 @@ def callback(data):
         started=False
     
 def listener():
-    print("2")
     rospy.Subscriber("chatter", String, callback)
 
 def talker():
@@ -21,6 +20,7 @@ def talker():
     pub = rospy.Publisher('chatter', String, queue_size=10)
     rospy.init_node(name, anonymous=True)
     rate = rospy.Rate(10)
+    listener()
     msg=String()
     while not rospy.is_shutdown():
         msg=input("Enter the msg : ")
@@ -28,7 +28,6 @@ def talker():
         pub.publish(msg)
         rospy.loginfo(msg)
         rate.sleep
-        listener()
         print("1")
 
 if __name__ == '__main__':
