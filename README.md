@@ -5,4 +5,4 @@
 5) 3rd question was very tough at first but I solved it using if condition which I was asked not to use.
 6) I learnt about the the function data._connection_header["callerid"] and get_name() function to use the if condition.
 7) Then I used custom messages to solve the task which was so interesting and I learnt so many things while having fun.
-8) The tasks are very well designed to learn about the various codes for publisher and subscriber in dept.
+8) The tasks are very well designed to learn about the various codes for publisher and subscriber in depth.
