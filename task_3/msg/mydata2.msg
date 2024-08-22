@@ -1,0 +1,2 @@
+int32 node2data1
+string node2data2

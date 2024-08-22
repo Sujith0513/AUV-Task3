@@ -3,8 +3,8 @@ import rospy
 from std_msgs.msg import String
 
 def talker():
-    pub = rospy.Publisher('chatter', String, queue_size=10)
-    rospy.init_node('t1', anonymous=True)
+    pub = rospy.Publisher('t1', String, queue_size=10)
+    rospy.init_node('talk1', anonymous=True)
     rate = rospy.Rate(10)
     msg=String()
     while not rospy.is_shutdown():
